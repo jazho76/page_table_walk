@@ -1,0 +1,6 @@
+The vmlinuz in this directory is a Linux kernel binary built by the Fedora
+Project (kernel 6.18.13-100.fc42.x86_64), licensed under GPLv2.
+
+Source is available at:
+  https://src.fedoraproject.org/rpms/kernel
+  https://kernel.org
