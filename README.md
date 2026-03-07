@@ -583,9 +583,9 @@ entries themselves.
 
 ## Finding another process's page tables
 
-We got lucky with CR3: our challenge binary was the running process when gdb
-halted the VM. But what if you need to walk the page tables of a _different_
-process?
+Our setup guaranteed that CR3 pointed to the challenge binary's page tables
+when gdb halted the VM. But what if you need to walk the page tables of a
+_different_ process?
 
 Every process's CR3 value is stored in its `task_struct`. The path is:
 
