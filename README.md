@@ -136,7 +136,7 @@ fields:
 ```
 
 Each 9-bit index selects one of 512 entries in a page table at that level. The
-12-bit offset selects a byte within the final 4 KB page.
+12-bit offset selects a byte within the final 4 KB (0x1000) page.
 
 To extract the indices, shift and mask:
 
