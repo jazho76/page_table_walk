@@ -661,8 +661,8 @@ because you've read them yourself.
 ## Further reading
 
 - [Understanding Paging](https://blog.zolutal.io/understanding-paging/):
-  zolutal's excellent treatment of the theory, pair it with this article for
-  the full picture
+  the tutorial that inspired this one. This article tries to push the
+  exploration a bit further, but start there if you haven't
 - [Intel SDM, Volume 3A, Chapter 4: "Paging"](https://www.intel.com/content/www/us/en/developer/articles/technical/intel-sdm.html):
   the authoritative reference (surprisingly readable once you've done a walk by
   hand)
