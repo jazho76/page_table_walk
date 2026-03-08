@@ -677,5 +677,5 @@ because you've read them yourself.
 - [Intel SDM, Volume 3A, Chapter 4: "Paging"](https://www.intel.com/content/www/us/en/developer/articles/technical/intel-sdm.html):
   the authoritative reference (surprisingly readable once you've done a walk by
   hand)
-- [pwn.college](https://pwn.college/system-security/kernel-security/): the
-  challenges that made me actually learn this stuff, highly recommended
+- [pwn.college: Kernel Security](https://pwn.college/system-security/kernel-security/):
+  the challenges that made me actually learn this stuff, highly recommended
