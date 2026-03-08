@@ -27,15 +27,18 @@ know because you did it by hand.
 
 ## Setting up the lab
 
-I ran this on Fedora 42 with kernel `6.18.13-100.fc42.x86_64`. Any recent
-Linux distro should work. Adjust the package names for your package manager.
-A pre-built kernel is included in `kernel/vmlinuz`, so you don't need to
-supply your own.
-
-You need QEMU and gdb:
+A pre-built kernel and initramfs are included, I ran this in Fedora, but any OS that runs QEMU and
+gdb should work. Install them with your package manager:
 
 ```
+# Ubuntu/Debian
+sudo apt install qemu-system-x86 gdb
+
+# Fedora/RHEL
 sudo dnf install qemu-system-x86 gdb
+
+# macOS
+brew install qemu gdb
 ```
 
 ### The challenge binary
@@ -250,7 +253,9 @@ Read it from gdb using QEMU's physical memory examine command:
 000000066c77f8: 0x0000000006713067
 ```
 
-Entry: `0x6713067` [Present RW User Accessed Dirty]. Next base: `0x6713067 & 0x000FFFFFFFFFF000` = `0x6713000`.
+Entry: `0x6713067` [Present RW User Accessed Dirty].
+
+Next base: `0x6713067 & 0x000FFFFFFFFFF000` = `0x6713000`.
 
 ### Level 3: PUD (Page Upper Directory)
 
@@ -267,7 +272,9 @@ entry = 0x6713000 + 0x1f8 * 8 = 0x6713fc0
 ```
 
 Entry: `0x66ac067` [Present RW User Accessed Dirty]. Page Size (bit 7) = 0, not a 1 GB huge
-page. Next base: `0x66ac067 & 0x000FFFFFFFFFF000` = `0x66ac000`.
+page.
+
+Next base: `0x66ac067 & 0x000FFFFFFFFFF000` = `0x66ac000`.
 
 ### Level 2: PMD (Page Middle Directory)
 
@@ -283,7 +290,9 @@ entry = 0x66ac000 + 0x44 * 8 = 0x66ac220
 ```
 
 Entry: `0x66c4067` [Present RW User Accessed Dirty]. Page Size (bit 7) = 0, not a 2 MB huge
-page. Next base: `0x66c4067 & 0x000FFFFFFFFFF000` = `0x66c4000`.
+page.
+
+Next base: `0x66c4067 & 0x000FFFFFFFFFF000` = `0x66c4000`.
 
 ### Level 1: PT (Page Table)
 
@@ -299,7 +308,9 @@ entry = 0x66c4000 + 0x185 * 8 = 0x66c4c28
 ```
 
 Entry: `0x80000000037fd867` [Present RW User Accessed Dirty NX]. This is the
-final PTE. Physical page frame: `0x80000000037fd867 & 0x000FFFFFFFFFF000` =
+final PTE.
+
+Physical page frame: `0x80000000037fd867 & 0x000FFFFFFFFFF000` =
 `0x37fd000`.
 
 ### What if Present = 0?
