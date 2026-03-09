@@ -673,9 +673,9 @@ because you've read them yourself.
 
 - [Understanding Paging](https://blog.zolutal.io/understanding-paging/):
   the tutorial that inspired this one. This article tries to push the
-  exploration a bit further, but start there if you haven't
+  exploration a bit further, but this is where it started for me
 - [Intel SDM, Volume 3A, Chapter 4: "Paging"](https://www.intel.com/content/www/us/en/developer/articles/technical/intel-sdm.html):
   the authoritative reference (surprisingly readable once you've done a walk by
   hand)
 - [pwn.college: Kernel Security](https://pwn.college/system-security/kernel-security/):
-  the challenges that made me actually learn this stuff, highly recommended
+  the challenges that made me actually explore this stuff, highly recommended
